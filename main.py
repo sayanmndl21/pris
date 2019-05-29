@@ -34,7 +34,7 @@ import pickle
 
 warnings.filterwarnings("ignore")
 """clf = joblib.load('input/detection_iris_new.pkl')## this is the vnear robust one"""
-clf = joblib.load('input/detection_backyaardwithnoise.pkl')## this is taken at the beach
+clf = joblib.load('input/detection_new18july.pkl')## this is taken at the beach
 #clm = joblib.load('input/detection_new18july.pkl')
 #clf1 = joblib.load('input/dronedetectionfinal_new.pkl')
 #discard this part----------------------------------------------------------
@@ -43,7 +43,7 @@ cols = 60
 winlist = []
 
 """set this part to the number of logs you want to save before computing confidence level"""
-log = logdata(4) ##check getconfi.py for more details(in feature_extraction folder)
+log = logdata(3) ##check getconfi.py for more details(in feature_extraction folder)
 
 ######################################################################################################
 global itervalue #I used this when I needed to get only a certain number o iterations
@@ -79,13 +79,13 @@ def dist_prediction_label(value):
         label = "midrange"
     elif value == 2:
         label = "near"
-    #elif value == 3:
-        #label = "vfar or nodrone"
     elif value == 3:
+        label = "vfar or nodrone"
+    elif value == 4:
         label = "vnear"
     return label
 
-noise, sfr = record(time = 15)##set time appropriately for good results
+#noise, sfr = record(time = 15)##set time appropriately for good results
 
 # def drone_prediction_label(value):
 #     if value == 1:
@@ -115,7 +115,7 @@ fname = 0
 try:#don't want useless user warnings
     while True:
         data, fs = record()
-        out = reduce_noise(data,noise)
+        #out = reduce_noise(data,noise)
         ns = fil.bandpass_filter(data,bandpass)
         try:
             p,freq, b = hmn.psddetectionresults(data)
@@ -156,12 +156,12 @@ try:#don't want useless user warnings
                     #win.addstr(8,5,"Data Sent!")
                 #recording for 10 secs script
                 if reccount > 0 and reccount < 12:
-                    recdata.append(out)
+                    recdata.append(data)
                     reccount += 1
                     if reccount == 11:
                         tf = tempfile.NamedTemporaryFile(prefix="drone")
                         np.save(tf.name,recdata)
-                        wavf.write(tf.name+'.wav', fs, scaled)
+                        wavf.write(tf.name+'.wav', fs, recdata)
                         wavsendtoken(output, tf.name+'.wav')
                         os.remove(tf.name+'.wav')
                         reccount = 0
