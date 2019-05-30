@@ -151,10 +151,12 @@ try:#don't want useless user warnings
                     prev_time = tm.time()
                     if int(output['Label']) == int(3) or int(output['Label']) == int(2):
                         send.push_notify()#when drone is detected this sends push notification to user in his app
-                        reccount=1
+                        if reccount == 0:
+                            reccount=1
+                            print("Recording started!")
                         print("pushed %s"% int(output['Label']))
                     #win.addstr(8,5,"Data Sent!")
-                #recording for 10 secs script
+                #recording for 10 secs:
                 if reccount > 0 and reccount < 12:
                     recdata.append(data)
                     reccount += 1
@@ -163,7 +165,9 @@ try:#don't want useless user warnings
                         np.save(tf.name,recdata)
                         wavf.write(tf.name+'.wav', fs, recdata)
                         wavsendtoken(output, tf.name+'.wav')
+                        print("file succesfully uploaded to server!")
                         os.remove(tf.name+'.wav')
+                        recdata = []
                         reccount = 0
 
 
