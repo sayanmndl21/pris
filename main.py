@@ -106,7 +106,7 @@ LOCATION = "Drone Detector A"
 send = apicalls(api_url,apikey, push_url,pushkey, sound_url, soundkey, LOCATION)##This initiates the push notification and mongodb database
 log.insertdf(3,str(datetime.datetime.now())[:-7]) #inserted dummy value to eliminate inconsistency
 i = 0
-bandpass = [800,8500]#filter unwanted frequencies
+bandpass = [600,10000]#filter unwanted frequencies
 prev_time= tm.time()#initiate time
 reccount = 0
 recdata = np.array([],dtype="float32")
@@ -147,9 +147,9 @@ try:#don't want useless user warnings
                 dt = tm.time() - prev_time
                 if dt > 30:#send output every 30secs
                     print('sent %s'% int(output['Label']))
-                    send.sendtoken2(output)#This line sends the log to srver(recent detection with confidence)
+                    send.sendtoken(output)#This line sends the log to srver(recent detection with confidence)
                     prev_time = tm.time()
-                    if int(output['Label']) == int(3) or int(output['Label']) == int(2):
+                    if int(output['Label']) == int(4) or int(output['Label']) == int(2):
                         send.push_notify()#when drone is detected this sends push notification to user in his app
                         if reccount == 0:
                             reccount=1
