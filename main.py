@@ -109,7 +109,7 @@ i = 0
 bandpass = [800,8500]#filter unwanted frequencies
 prev_time= tm.time()#initiate time
 reccount = 0
-recdata = []
+recdata = np.array([],dtype="float32")
 fname = 0
 """main code"""
 try:#don't want useless user warnings
@@ -158,16 +158,18 @@ try:#don't want useless user warnings
                     #win.addstr(8,5,"Data Sent!")
                 #recording for 10 secs:
                 if reccount > 0 and reccount < 12:
-                    recdata.append(data)
+                    recdata = np.concatenate([recdata, data])
+                    np.seterr(divide='ignore', invalid='ignore')
+                    recscaled = np.int16(recdata/np.max(np.abs(recdata)) * 32767)
                     reccount += 1
                     if reccount == 11:
                         tf = tempfile.NamedTemporaryFile(prefix="drone")
-                        np.save(tf.name,recdata)
+                        np.save(tf.name,recscaled)
                         wavf.write(tf.name+'.wav', fs, recdata)
-                        wavsendtoken(output, tf.name+'.wav')
+                        send.wavsendtoken(output, tf.name+'.wav')
                         print("file succesfully uploaded to server!")
                         os.remove(tf.name+'.wav')
-                        recdata = []
+                        recdata = np.array([],dtype="float32")
                         reccount = 0
 
 
