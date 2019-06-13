@@ -7,15 +7,18 @@ Created on Thu Jul 26 09:53:05 2018
 """
 import requests
 import json
+import os
  
 class apicalls(object):
-    def __init__(self, api_url, apikey, push_url, pushkey, sound_url, soundkey, location):
+    def __init__(self, api_url, apikey, push_url, pushkey, sound_url, soundkey, wav_url, wavkey, location):
         self.url = api_url
         self.key = apikey
         self.pushurl = push_url
         self.pushKey = pushkey
         self.soundurl = sound_url
         self.soundKey = soundkey
+        self.wavurl = wav_url
+        self.wavKey = wavkey
         self.location = location
     
     """-----------------------All tokens definitions returns the url of the api where you can view what you have sent-------------------"""
@@ -66,13 +69,13 @@ class apicalls(object):
         self.r =  requests.post(self.url, data = self.log)
         return self.r.text
 
-    def wavsendtoken(self, record, recfname):##tokens are sent using the format in self.log
+    def infosendtoken(self, record, recfname):##tokens are sent using the format in self.log
         self.x = record['Label']
         self.Label = self.getLabel(int(self.x))
         self.timestamp =record['Timestamp']
         self.confidence = record['Confidence']
         #self.confidenceLabel = self.getConfidence(int(self.confidence))
-        self.log = {"fileName":recfname,#wav file to send
+        self.infolog = {"fileName":recfname,#wav file to send
         "length":"10",
         "comment":"ok",
         "distance" : self.Label,
@@ -80,8 +83,14 @@ class apicalls(object):
         "locationRecorded": self.location,#need to change
         "date": self.timestamp
         }
-        self.reqn =  requests.post(self.soundurl, data = self.log)
+        self.reqn =  requests.post(self.soundurl, data = self.infolog)
         return self.reqn.text
+    
+    def wavsendtoken(self, recfname):##tokens are sent using the format in self.log
+        recname = os.path.abspath(os.path.join(os.getcwd(),'../'+recfname))
+        self.wavfile = {"file":(recfname, open(recname,'rb'),'application/x-www-form-urlencoded',{'Expires':'0'})}#wav file to send
+        self.sreqn =  requests.post(self.wavurl, files = self.wavfile)
+        return self.sreqn.text
         
     
     def getLabel(self,x):

@@ -102,15 +102,17 @@ push_url = "https://onesignal.com/api/v1/notifications"
 pushkey = None
 sound_url = 'http://mlc67-cmp-00.egr.duke.edu/api/soundInfos'
 soundkey = None
+wav_url = ' http://mlc67-cmp-00.egr.duke.edu/api/sound-clips/container/upload'
+wavkey = None
 LOCATION = "Drone Detector A"
-send = apicalls(api_url,apikey, push_url,pushkey, sound_url, soundkey, LOCATION)##This initiates the push notification and mongodb database
+send = apicalls(api_url,apikey, push_url,pushkey, sound_url, soundkey, wav_url,wavkey, LOCATION)##This initiates the push notification and mongodb database
 log.insertdf(3,str(datetime.datetime.now())[:-7]) #inserted dummy value to eliminate inconsistency
 i = 0
 bandpass = [600,10000]#filter unwanted frequencies
 prev_time= tm.time()#initiate time
 reccount = 0
 recdata = np.array([],dtype="float32")
-fname = 0
+basename = "drone"
 """main code"""
 try:#don't want useless user warnings
     while True:
@@ -152,6 +154,7 @@ try:#don't want useless user warnings
                     if int(output['Label']) == int(4) or int(output['Label']) == int(2):
                         send.push_notify()#when drone is detected this sends push notification to user in his app
                         if reccount == 0:
+                            suffix = datetime.datetime.now().strftime("%y%m%d_%H%M%S")
                             reccount=1
                             print("Recording started!")
                         print("pushed %s"% int(output['Label']))
@@ -163,12 +166,13 @@ try:#don't want useless user warnings
                     recscaled = np.int16(recdata/np.max(np.abs(recdata)) * 32767)
                     reccount += 1
                     if reccount == 11:
-                        tf = tempfile.NamedTemporaryFile(prefix="drone")
-                        np.save(tf.name,recscaled)
-                        wavf.write(tf.name+'.wav', fs, recdata)
-                        send.wavsendtoken(output, tf.name+'.wav')
+                        sfilename = "_".join([basename, suffix])+".wav" # e.g. 'mylogfile_120508_171442'
+                        #np.save(tf.name,recscaled)
+                        wavf.write(sfilename, fs, recscaled)
+                        send.infosendtoken(output, sfilename)
+                        send.wavsendtoken(sfilename)
                         print("file succesfully uploaded to server!")
-                        os.remove(tf.name+'.wav')
+                        os.remove(sfilename)
                         recdata = np.array([],dtype="float32")
                         reccount = 0
 
