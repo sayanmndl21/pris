@@ -6,7 +6,7 @@ Todo list by June 20
 
 - [x] PM2 error log files to store all the error information
 
-      ```javacript
+      ```
       pm2 desc 0 
       ```
 
@@ -23,7 +23,7 @@ Server information:
 
 - For all predictions: ../api/..
 - For sound file information: (http://mlc67-cmp-00.egr.duke.edu/api/soundInfos)
-- For complete sound files recordings: (http://mlc67-cmp-00.egr.duke.edu/api/sound-clips) 
+- For complete javacriptsound files recordings: (http://mlc67-cmp-00.egr.duke.edu/api/sound-clips) 
 
 - [x] Update server location for Carytown test: 
       - For the prison, it is /api/events
@@ -33,7 +33,9 @@ Server information:
       - apicall.py: def wavsendtoken()
       ```python
       init recfname:  drone_190617_130023.wav
+      
       recname:  /home/pi/CaryTownv2/drone_190617_130023.wav
+      
       file succesfully uploaded to server!
       ```
 
