@@ -17,6 +17,16 @@ pm2 log management: (http://pm2.keymetrics.io/docs/usage/log-management/)
 
 
 ### Server 
+Server information: 
+
+- For all predictions: ../api/..
+- For sound file information: (http://mlc67-cmp-00.egr.duke.edu/api/soundInfos)
+- For complete sound files recordings: (http://mlc67-cmp-00.egr.duke.edu/api/sound-clips) 
+
+- [x] Update server location for Carytown test: 
+      - For the prison, it is /api/events
+      - For Cary, it is /api/caryevents
+      
 - [ ] Server upload files to ../sound-clips
 
 - [ ] Download files to check the recording information 
