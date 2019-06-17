@@ -31,13 +31,7 @@ Server information:
       
 - [x] Server upload files to ../sound-clips
       - apicall.py: def wavsendtoken()
-      ```python
-      init recfname:  drone_190617_130023.wav
-      
-      recname:  /home/pi/CaryTownv2/drone_190617_130023.wav
-      
-      file succesfully uploaded to server!
-      ```
+      - Directly access url to listen: (http://mlc67-cmp-00.egr.duke.edu/api/sound-clips/container/download/sounfile_name.wav)
 
 - [ ] Download files to check the recording information 
 
