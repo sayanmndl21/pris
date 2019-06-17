@@ -27,9 +27,15 @@ Server information:
       
 - [x] Server upload files to ../sound-clips
       - apicall.py: def wavsendtoken()
-      - Directly access url to listen: (http://mlc67-cmp-00.egr.duke.edu/api/sound-clips/container/download/sounfile_name.wav)
+      
+      - Directly access url to listen: 
+      
+      (http://mlc67-cmp-00.egr.duke.edu/api/sound-clips/container/download/sounfile_name.wav)
 
-- [ ] Download files to check the recording information 
+- [x] Download files to check the recording information: 
+
+      - Directly download through url link 
+      - [ ] Download through Postman get requrest 
 
 ### Timer 
 - [ ] Set up for Pi-3B
