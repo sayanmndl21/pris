@@ -53,10 +53,15 @@ Server information:
 
 ### 2nd round of system test 
 - [x] 72hrs test:
+
       - started on Monday 06/17 10am, with both batteries 25% level 
+      
       - Monday weather: 93 F, strong sunshine 
+      
       - Stop system at night: 8pm, record battery level  
+      
       - Restart system in the morning Tuesday 06/18 7am 
+      
 
 - [ ] Record solar panel && battery charging discharging balance 
 
