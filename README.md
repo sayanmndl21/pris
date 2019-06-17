@@ -4,11 +4,15 @@ Todo list by June 20
 ### PM2 management 
 - [ ] PM2 log files extend recording lines 
 
-- [ ] PM2 error log files to store all the error information
+- [x] PM2 error log files to store all the error information
 
 '''pm2 desc 0''' 
 
 > │ error log path    │ /home/pi/.pm2/logs/main-error.log
+
+- [ ] PM2 error log files add error occurrence time 
+
+pm2 log management: (http://pm2.keymetrics.io/docs/usage/log-management/)
 
 
 ### Server upload files and download for checking 
