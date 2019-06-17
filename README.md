@@ -6,9 +6,11 @@ Todo list by June 20
 
 - [x] PM2 error log files to store all the error information
 
-'''pm2 desc 0''' 
+      ```javacript
+      pm2 desc 0 
+      ```
 
-> │ error log path    │ /home/pi/.pm2/logs/main-error.log
+      > │ error log path    │ /home/pi/.pm2/logs/main-error.log
 
 - [ ] PM2 error log files add error occurrence time, edit the ecosystem file 
 
@@ -27,7 +29,13 @@ Server information:
       - For the prison, it is /api/events
       - For Cary, it is /api/caryevents
       
-- [ ] Server upload files to ../sound-clips
+- [x] Server upload files to ../sound-clips
+      - apicall.py: def wavsendtoken()
+      ```python
+      init recfname:  drone_190617_130023.wav
+      recname:  /home/pi/CaryTownv2/drone_190617_130023.wav
+      file succesfully uploaded to server!
+      ```
 
 - [ ] Download files to check the recording information 
 
