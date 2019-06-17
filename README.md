@@ -1,7 +1,7 @@
 # Pris
 
 Todo list by June 20 
-### PM2 management 
+### PM2  
 - [ ] PM2 log files extend recording lines 
 
 - [x] PM2 error log files to store all the error information
@@ -10,23 +10,24 @@ Todo list by June 20
 
 > │ error log path    │ /home/pi/.pm2/logs/main-error.log
 
-- [ ] PM2 error log files add error occurrence time 
+- [ ] PM2 error log files add error occurrence time, edit the ecosystem file 
 
 pm2 log management: (http://pm2.keymetrics.io/docs/usage/log-management/)
+(https://pm2.io/doc/en/runtime/guide/log-management/)
 
 
-### Server upload files and download for checking 
+### Server 
 - [ ] Server upload files to ../sound-clips
 
 - [ ] Download files to check the recording information 
 
-### Timer start time set up 
+### Timer 
 - [ ] Set up for Pi-3B
 
 - [ ] Set up for Pi-3B+ model 
 
-### Mobile app update to Carytown version 
-- [ ] Check the map 
+### Mobile app 
+- [ ] Check the map update to Carytown
 
 - [ ] Check the history information 
 
