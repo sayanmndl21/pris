@@ -43,9 +43,10 @@ Server information:
 - [ ] Set up for Pi-3B+ model 
 
 ### Mobile app 
-- [ ] Check the map update to Carytown
+- [x] Check the map update to Carytown
 
 - [ ] Check the history information 
+      - Update the app api
 
 ### 2nd round of system test 
 - [ ] 72hrs test 
