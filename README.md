@@ -6,10 +6,6 @@ Todo list by June 20
 
 - [x] PM2 error log files to store all the error information
 
-      ```
-      pm2 desc 0 
-      ```
-
       > │ error log path    │ /home/pi/.pm2/logs/main-error.log
 
 - [ ] PM2 error log files add error occurrence time, edit the ecosystem file 
