@@ -8,6 +8,7 @@ Created on Thu Jul 26 09:53:05 2018
 import requests
 import json
 import os
+import sys
  
 class apicalls(object):
     def __init__(self, api_url, apikey, push_url, pushkey, sound_url, soundkey, wav_url, wavkey, location):
@@ -36,7 +37,18 @@ class apicalls(object):
         "location": self.location,
         "time": self.timestamp
         }
-        self.r =  requests.post(self.url, data = self.log)
+        while True:
+            try:
+                # do stuff
+                self.r =  requests.post(self.url, data = self.log)
+            except requests.exceptions.Timeout:
+                # Maybe set up for a retry, or continue in a retry loop
+                continue
+            except requests.exceptions.RequestException as e:
+                # catastrophic error. bail.
+                print e
+                sys.exit(1)
+            break
         return self.r.text
     
     def sendtoken1(self, record):##this token is for a different script, the only difference is the labelling because it is trained for different model
@@ -51,7 +63,18 @@ class apicalls(object):
         "location": self.location,
         "time": self.timestamp
         }
-        self.r =  requests.post(self.url, data = self.log)
+        while True:
+            try:
+                # do stuff
+                self.r =  requests.post(self.url, data = self.log)
+            except requests.exceptions.Timeout:
+                # Maybe set up for a retry, or continue in a retry loop
+                continue
+            except requests.exceptions.RequestException as e:
+                # catastrophic error. bail.
+                print e
+                sys.exit(1)
+            break
         return self.r.text
     
     def sendtoken2(self, record):##the same as token2
@@ -66,7 +89,18 @@ class apicalls(object):
         "location": self.location,
         "time": self.timestamp
         }
-        self.r =  requests.post(self.url, data = self.log)
+        while True:
+            try:
+                # do stuff
+                self.r =  requests.post(self.url, data = self.log)
+            except requests.exceptions.Timeout:
+                # Maybe set up for a retry, or continue in a retry loop
+                continue
+            except requests.exceptions.RequestException as e:
+                # catastrophic error. bail.
+                print e
+                sys.exit(1)
+            break
         return self.r.text
 
     def infosendtoken(self, record, recfname):##tokens are sent using the format in self.log
@@ -83,13 +117,35 @@ class apicalls(object):
         "locationRecorded": self.location,#need to change
         "date": self.timestamp
         }
-        self.reqn =  requests.post(self.soundurl, data = self.infolog)
+        while True:
+            try:
+                # do stuff
+                self.reqn =  requests.post(self.soundurl, data = self.infolog)
+            except requests.exceptions.Timeout:
+                # Maybe set up for a retry, or continue in a retry loop
+                continue
+            except requests.exceptions.RequestException as e:
+                # catastrophic error. bail.
+                print e
+                sys.exit(1)
+            break
         return self.reqn.text
     
     def wavsendtoken(self, recfname):##tokens are sent using the format in self.log
         recname = os.path.abspath(os.path.join(os.getcwd(),'../'+recfname))
         self.wavfile = {"file":(recfname, open(recname,'rb'),'application/x-www-form-urlencoded',{'Expires':'0'})}#wav file to send
-        self.sreqn =  requests.post(self.wavurl, files = self.wavfile)
+        while True:
+            try:
+                # do stuff
+                self.sreqn =  requests.post(self.wavurl, files = self.wavfile)
+            except requests.exceptions.Timeout:
+                # Maybe set up for a retry, or continue in a retry loop
+                continue
+            except requests.exceptions.RequestException as e:
+                # catastrophic error. bail.
+                print e
+                sys.exit(1)
+            break
         return self.sreqn.text
         
     
