@@ -46,7 +46,7 @@ class apicalls(object):
                 continue
             except requests.exceptions.RequestException as e:
                 # catastrophic error. bail.
-                print e
+                print(e)
                 sys.exit(1)
             break
         return self.r.text
@@ -72,7 +72,7 @@ class apicalls(object):
                 continue
             except requests.exceptions.RequestException as e:
                 # catastrophic error. bail.
-                print e
+                print(e)
                 sys.exit(1)
             break
         return self.r.text
@@ -98,7 +98,7 @@ class apicalls(object):
                 continue
             except requests.exceptions.RequestException as e:
                 # catastrophic error. bail.
-                print e
+                print(e)
                 sys.exit(1)
             break
         return self.r.text
@@ -126,7 +126,7 @@ class apicalls(object):
                 continue
             except requests.exceptions.RequestException as e:
                 # catastrophic error. bail.
-                print e
+                print(e)
                 sys.exit(1)
             break
         return self.reqn.text
@@ -143,7 +143,7 @@ class apicalls(object):
                 continue
             except requests.exceptions.RequestException as e:
                 # catastrophic error. bail.
-                print e
+                print(e)
                 sys.exit(1)
             break
         return self.sreqn.text
