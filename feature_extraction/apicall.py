@@ -132,7 +132,9 @@ class apicalls(object):
         return self.reqn.text
     
     def wavsendtoken(self, recfname):##tokens are sent using the format in self.log
-        recname = os.path.abspath(os.path.join(os.getcwd(),'../'+recfname))
+        # recname = os.path.abspath(os.path.join(os.getcwd(),'../'+recfname))
+	# edit the recname file path 
+	recname = os.path.abspath(os.path.join(os.getcwd(),recfname))
         self.wavfile = {"file":(recfname, open(recname,'rb'),'application/x-www-form-urlencoded',{'Expires':'0'})}#wav file to send
         while True:
             try:
