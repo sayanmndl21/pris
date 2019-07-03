@@ -189,12 +189,23 @@ class apicalls(object):
         return self.label
     
     def push_notify(self):##This uses the api Chunge built.
+        """
         self.header = {"Content-Type": "application/json; charset=utf-8",
         "Authorization": "Basic NDMyMTM5MjctMzYxZC00OTM3LTkxODEtYjljNDY5OTdmNGE0"}
         self.payload = {"app_id": "2ebe188c-34d4-423f-8c7f-21bd0483fc95",
         "contents": {"en": "Drone Detected!!"},
 	    "template_id": "658d2118-ea02-4902-88e0-b708fa2e4fcd",
         "included_segments": ["All"]}
+        """
+
+        # Updates of Cary
+        self.header = {"Content-Type": "application/json; charset=utf-8",
+                       "Authorization": "Basic NTEzMmU2YjAtYTdjOC00OGE0LWI0MWUtM2NiYzA5YmQ5NmU1"}
+        self.payload = {"app_id": "e2d74d80-93dd-48f7-879f-ed4cb8cebe5f",
+        "contents": {"en": "Drone Detected!!"},
+	    "template_id": "8c1498e3-403f-4b94-9a72-9d0ea002e4db",
+        "included_segments": ["All"]}
+
         self.req = requests.post(self.pushurl,headers = self.header,data = json.dumps(self.payload))
         return self.req.text
 
