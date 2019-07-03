@@ -152,10 +152,13 @@ try:#don't want useless user warnings
                     #win.addstr(7,5,"Recieved a Result!")
                     dt = tm.time() - prev_time
                     if dt > 30:#send output every 30secs
+                        # Now dummy sent
                         print('sent %s'% int(output['Label']))
-                        send.sendtoken(output)#This line sends the log to srver(recent detection with confidence)
+                        # send.sendtoken(output)#This line sends the log to srver(recent detection with confidence)
                         prev_time = tm.time()
                         if int(output['Label']) == int(4) or int(output['Label']) == int(2):
+                            # move the previous line here, to send info only when detection happens 
+                            send.sendtoken(output)#This line sends the log to srver(recent detection with confidence)
                             send.push_notify()#when drone is detected this sends push notification to user in his app
                             if reccount == 0:
                                 suffix = datetime.datetime.now().strftime("%y%m%d_%H%M%S")
