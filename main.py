@@ -98,7 +98,6 @@ def dist_prediction_label(value):
 """set api and initiate calls"""
 # api_url = 'http://mlc67-cmp-00.egr.duke.edu/api/events' ##This is dukes server which Chunge created
 api_url = 'http://mlc67-cmp-00.egr.duke.edu/api/caryevents' ##This is carytown server  
-
 apikey = None
 push_url = "https://onesignal.com/api/v1/notifications"
 pushkey = None
@@ -118,55 +117,60 @@ basename = "drone"
 """main code"""
 try:#don't want useless user warnings
     while True:
-        data, fs = record()
-        #out = reduce_noise(data,noise)
-        ns = fil.bandpass_filter(data,bandpass)
-        try:
-            p,freq, b = hmn.psddetectionresults(data)
-        except IndexError:
-            pass
-            b = False
+        if reccount == 0: 
+            data, fs = record()
+            #out = reduce_noise(data,noise)
+            ns = fil.bandpass_filter(data,bandpass)
+            try:
+                p,freq, b = hmn.psddetectionresults(data)
+            except IndexError:
+                pass
+                b = False
         b = True
         
         if b:
-            mfcc, chroma, mel, spect, tonnetz = fex.extract_feature(ns,fs)
-            #a,e,k = lpg.lpc(ns,10)
-            mfcc_test = par.get_parsed_mfccdata(mfcc, chroma,mel,spect,tonnetz)
-            #lpc_test = par.get_parsed_lpcdata(a,k,freq)
-            x1 = clf.predict(mfcc_test)
-            #x02 = clm.predict(mfcc_test)
-            #x1 = ((x01[0]+x01[0])/2)
-            #x2 = clf1.predict(lpc_test) 
-            print("Drone at %s"% dist_prediction_label(int(x1)))
-            log.insertdf(int(x1),str(datetime.datetime.now())[:-7])
-            print(x1)
-            output = log.get_result()
-            '''-----------uncomment if you want to save logs-----------------'''
-            #log.logdf(sys.argv[1],x01[0],x02[0],str(datetime.datetime.now())[:-7])
-            '''---------------------------------------------------------------'''
+            if reccount == 0: 
+                mfcc, chroma, mel, spect, tonnetz = fex.extract_feature(ns,fs)
+                #a,e,k = lpg.lpc(ns,10)
+                mfcc_test = par.get_parsed_mfccdata(mfcc, chroma,mel,spect,tonnetz)
+                #lpc_test = par.get_parsed_lpcdata(a,k,freq)
+                x1 = clf.predict(mfcc_test)
+                #x02 = clm.predict(mfcc_test)
+                #x1 = ((x01[0]+x01[0])/2)
+                #x2 = clf1.predict(lpc_test) 
+                print("Drone at %s"% dist_prediction_label(int(x1)))
+                log.insertdf(int(x1),str(datetime.datetime.now())[:-7])
+                print(x1)
+                output = log.get_result()
+                '''-----------uncomment if you want to save logs-----------------'''
+                #log.logdf(sys.argv[1],x01[0],x02[0],str(datetime.datetime.now())[:-7])
+                '''---------------------------------------------------------------'''
             
             if True:#i > 9:
-                print(int(output['Label']))
-                #win.addstr(7,5,"Recieved a Result!")
-                dt = tm.time() - prev_time
-                if dt > 30:#send output every 30secs
-                    print('sent %s'% int(output['Label']))
-                    send.sendtoken(output)#This line sends the log to srver(recent detection with confidence)
-                    prev_time = tm.time()
-                    if int(output['Label']) == int(4) or int(output['Label']) == int(2):
-                        send.push_notify()#when drone is detected this sends push notification to user in his app
-                        if reccount == 0:
-                            suffix = datetime.datetime.now().strftime("%y%m%d_%H%M%S")
-                            reccount=1
-                            print("Recording started!")
-                        print("pushed %s"% int(output['Label']))
-                    #win.addstr(8,5,"Data Sent!")
+                if reccount == 0: 
+                    print(int(output['Label']))
+                    #win.addstr(7,5,"Recieved a Result!")
+                    dt = tm.time() - prev_time
+                    if dt > 30:#send output every 30secs
+                        print('sent %s'% int(output['Label']))
+                        send.sendtoken(output)#This line sends the log to srver(recent detection with confidence)
+                        prev_time = tm.time()
+                        if int(output['Label']) == int(4) or int(output['Label']) == int(2):
+                            send.push_notify()#when drone is detected this sends push notification to user in his app
+                            if reccount == 0:
+                                suffix = datetime.datetime.now().strftime("%y%m%d_%H%M%S")
+                                reccount=1
+                                print("Recording started!")
+                            print("pushed %s"% int(output['Label']))
+                        #win.addstr(8,5,"Data Sent!")
+                
                 #recording for 10 secs:
                 if reccount > 0 and reccount < 12:
+                    data, fs = record(time=10)
                     recdata = np.concatenate([recdata, data])
                     np.seterr(divide='ignore', invalid='ignore')
                     recscaled = np.int16(recdata/np.max(np.abs(recdata)) * 32767)
-                    reccount += 1
+                    reccount += 10
                     if reccount == 11:
                         sfilename = "_".join([basename, suffix])+".wav" # e.g. 'mylogfile_120508_171442'
                         #np.save(tf.name,recscaled)
