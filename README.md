@@ -1,39 +1,23 @@
 # Pris
 
-Todo list by July 2nd
-### PM2  
-- [ ] PM2 log files extend recording lines 
+Todo list for week of July 8th 
 
-- [x] PM2 error log files to store all the error information
+### Seond set of system set up 
 
-      > │ error log path    │ /home/pi/.pm2/logs/main-error.log
+- [ ] Order the better phantom power supply model 
+- [ ] Stree testing for the new system 
 
-- [ ] PM2 error log files add error occurrence time, edit the ecosystem file 
+### Carytown collected data analysis 
 
-pm2 log management: (http://pm2.keymetrics.io/docs/usage/log-management/)
-(https://pm2.io/doc/en/runtime/guide/log-management/)
+- [ ] Analyze the freqency and sound features of the lower white noise && rain noise 
+- [ ] Filter out the low white noise, update the system algorithm and resume running 
 
-
-### Server 
-Server information: 
-      
-- [x] Server upload files to ../sound-clips
-      - apicall.py: def wavsendtoken()
-      
-      - Directly access url to listen: 
-      
-      (http://mlc67-cmp-00.egr.duke.edu/api/sound-clips/container/download/sounfile_name.wav)
-
-
-### Timer 
-
-- [ ] Set up for Pi-3B+ model 
 
 ### Mobile app 
 
-- [ ] Check the history information: coherent with the server information, as well as the pm2 log information 
+- [ ] Implement the history page, pull data and update from the server 
+- [ ] Implement the google map plugins 
+- [ ] Pull down for refreshing data  
 
-### Stree system test 
-     
-- [ ] Record the error message 
+
 
