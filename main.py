@@ -118,7 +118,7 @@ try:#don't want useless user warnings
     while True:
         data, fs = record()
         #out = reduce_noise(data,noise)
-        ns = fil.bandpass_filter(data,bandpass)
+        #ns = fil.bandpass_filter(data,bandpass)
         try:
             p,freq, b = hmn.psddetectionresults(data)
         except IndexError:
@@ -127,7 +127,9 @@ try:#don't want useless user warnings
         b = True
         
         if b:
-            mfcc, chroma, mel, spect, tonnetz = fex.extract_feature(ns,fs)
+            fs = 44100#force 44100 sample rate to prediction
+            #mfcc, chroma, mel, spect, tonnetz = fex.extract_feature(ns,fs)#ns changed to raw data
+            mfcc, chroma, mel, spect, tonnetz = fex.extract_feature(data,fs)#ns changed to raw data
             #a,e,k = lpg.lpc(ns,10)
             mfcc_test = par.get_parsed_mfccdata(mfcc, chroma,mel,spect,tonnetz)
             #lpc_test = par.get_parsed_lpcdata(a,k,freq)
