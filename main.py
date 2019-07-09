@@ -96,7 +96,9 @@ def dist_prediction_label(value):
 
 ######################################################################################################################
 """set api and initiate calls"""
-api_url = 'http://mlc67-cmp-00.egr.duke.edu/api/events' ##This is dukes server which Chunge created
+# api_url = 'http://mlc67-cmp-00.egr.duke.edu/api/events' ##This is dukes server which Chunge created
+api_url = 'http://mlc67-cmp-00.egr.duke.edu/api/caryevents' ##This is carytown server  
+
 apikey = None
 push_url = "https://onesignal.com/api/v1/notifications"
 pushkey = None
