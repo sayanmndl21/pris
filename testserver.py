@@ -85,7 +85,7 @@ reccount = 0
 recdata = np.array([],dtype="float32")
 basename = "drone"
 labels=[]
-
+"""save server recodings in assets folder"""
 for root, dirs, files in os.walk("assets"):
     for file in files:
         if file.endswith(".wav"):
@@ -106,4 +106,9 @@ for root, dirs, files in os.walk("assets"):
                 label1 = dist_prediction_label(int(x11))
                 labels.append([i,file,label,label1])
                 i+=1
-                
+
+import pandas as pd
+df = pd.DataFrame(labels)
+df.columns=['idx','filename','labelwithfilter','labelwithrawdata']
+df
+df.to_csv(r'servertest.csv')
