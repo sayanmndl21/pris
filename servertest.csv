@@ -1,0 +1,131 @@
+,idx,filename,labelwithfilter,labelwithrawdata
+0,0,drone_190703_003048.wav,far,far
+1,1,drone_190703_003048.wav,midrange,vnear
+2,2,drone_190703_003048.wav,midrange,midrange
+3,3,drone_190703_003048.wav,midrange,near
+4,4,drone_190703_003048.wav,midrange,near
+5,5,drone_190703_003048.wav,near,vfar or nodrone
+6,6,drone_190703_003048.wav,near,vfar or nodrone
+7,7,drone_190703_003048.wav,midrange,near
+8,8,drone_190703_003048.wav,midrange,vfar or nodrone
+9,9,drone_190703_003048.wav,vfar or nodrone,midrange
+10,10,drone_190703_021317.wav,vfar or nodrone,vfar or nodrone
+11,11,drone_190703_021317.wav,vfar or nodrone,vfar or nodrone
+12,12,drone_190703_021317.wav,vfar or nodrone,vfar or nodrone
+13,13,drone_190703_021317.wav,vfar or nodrone,vfar or nodrone
+14,14,drone_190703_021317.wav,vfar or nodrone,vfar or nodrone
+15,15,drone_190703_021317.wav,vfar or nodrone,vfar or nodrone
+16,16,drone_190703_021317.wav,vfar or nodrone,vfar or nodrone
+17,17,drone_190703_021317.wav,vfar or nodrone,vfar or nodrone
+18,18,drone_190703_021317.wav,vfar or nodrone,vfar or nodrone
+19,19,drone_190703_021317.wav,vfar or nodrone,vfar or nodrone
+20,20,drone_190703_030151.wav,midrange,vfar or nodrone
+21,21,drone_190703_030151.wav,midrange,near
+22,22,drone_190703_030151.wav,midrange,vfar or nodrone
+23,23,drone_190703_030151.wav,midrange,vfar or nodrone
+24,24,drone_190703_030151.wav,midrange,vfar or nodrone
+25,25,drone_190703_030151.wav,vfar or nodrone,midrange
+26,26,drone_190703_030151.wav,vnear,vnear
+27,27,drone_190703_030151.wav,vfar or nodrone,vfar or nodrone
+28,28,drone_190703_030151.wav,vfar or nodrone,vnear
+29,29,drone_190703_030151.wav,vfar or nodrone,vnear
+30,30,drone_190703_060436.wav,midrange,vfar or nodrone
+31,31,drone_190703_060436.wav,midrange,vfar or nodrone
+32,32,drone_190703_060436.wav,midrange,vfar or nodrone
+33,33,drone_190703_060436.wav,midrange,vfar or nodrone
+34,34,drone_190703_060436.wav,midrange,vfar or nodrone
+35,35,drone_190703_060436.wav,near,vfar or nodrone
+36,36,drone_190703_060436.wav,near,vfar or nodrone
+37,37,drone_190703_060436.wav,near,vfar or nodrone
+38,38,drone_190703_060436.wav,near,vfar or nodrone
+39,39,drone_190703_060436.wav,midrange,vfar or nodrone
+40,40,drone_190703_063922.wav,midrange,vfar or nodrone
+41,41,drone_190703_063922.wav,midrange,vfar or nodrone
+42,42,drone_190703_063922.wav,midrange,vfar or nodrone
+43,43,drone_190703_063922.wav,midrange,vfar or nodrone
+44,44,drone_190703_063922.wav,midrange,vfar or nodrone
+45,45,drone_190703_063922.wav,midrange,vfar or nodrone
+46,46,drone_190703_063922.wav,midrange,vfar or nodrone
+47,47,drone_190703_063922.wav,midrange,vfar or nodrone
+48,48,drone_190703_063922.wav,midrange,vfar or nodrone
+49,49,drone_190703_063922.wav,midrange,vfar or nodrone
+50,50,drone_190703_144147.wav,vfar or nodrone,vfar or nodrone
+51,51,drone_190703_144147.wav,far,vfar or nodrone
+52,52,drone_190703_144147.wav,vfar or nodrone,vfar or nodrone
+53,53,drone_190703_144147.wav,far,vfar or nodrone
+54,54,drone_190703_144147.wav,far,vfar or nodrone
+55,55,drone_190703_144147.wav,vfar or nodrone,far
+56,56,drone_190703_144147.wav,vfar or nodrone,vfar or nodrone
+57,57,drone_190703_144147.wav,vfar or nodrone,vfar or nodrone
+58,58,drone_190703_144147.wav,vfar or nodrone,vfar or nodrone
+59,59,drone_190703_144147.wav,far,vfar or nodrone
+60,60,drone_190704_002450.wav,far,far
+61,61,drone_190704_002450.wav,far,far
+62,62,drone_190704_002450.wav,far,far
+63,63,drone_190704_002450.wav,far,far
+64,64,drone_190704_002450.wav,far,far
+65,65,drone_190704_002450.wav,far,far
+66,66,drone_190704_002450.wav,far,far
+67,67,drone_190704_002450.wav,far,far
+68,68,drone_190704_002450.wav,far,far
+69,69,drone_190704_002450.wav,far,far
+70,70,drone_190704_010355.wav,near,vfar or nodrone
+71,71,drone_190704_010355.wav,near,vfar or nodrone
+72,72,drone_190704_010355.wav,near,vfar or nodrone
+73,73,drone_190704_010355.wav,near,vfar or nodrone
+74,74,drone_190704_010355.wav,near,vfar or nodrone
+75,75,drone_190704_010355.wav,near,vfar or nodrone
+76,76,drone_190704_010355.wav,near,vfar or nodrone
+77,77,drone_190704_010355.wav,near,vfar or nodrone
+78,78,drone_190704_010355.wav,near,vfar or nodrone
+79,79,drone_190704_010355.wav,near,vfar or nodrone
+80,80,drone_190704_160724.wav,far,far
+81,81,drone_190704_160724.wav,far,far
+82,82,drone_190704_160724.wav,far,far
+83,83,drone_190704_160724.wav,far,far
+84,84,drone_190704_160724.wav,far,far
+85,85,drone_190704_160724.wav,far,far
+86,86,drone_190704_160724.wav,far,far
+87,87,drone_190704_160724.wav,far,far
+88,88,drone_190704_160724.wav,far,far
+89,89,drone_190704_160724.wav,midrange,midrange
+90,90,drone_190705_124721.wav,midrange,vfar or nodrone
+91,91,drone_190705_124721.wav,midrange,vfar or nodrone
+92,92,drone_190705_124721.wav,midrange,vfar or nodrone
+93,93,drone_190705_124721.wav,vfar or nodrone,vfar or nodrone
+94,94,drone_190705_124721.wav,midrange,vfar or nodrone
+95,95,drone_190705_124721.wav,vnear,vfar or nodrone
+96,96,drone_190705_124721.wav,midrange,vfar or nodrone
+97,97,drone_190705_124721.wav,far,vfar or nodrone
+98,98,drone_190705_124721.wav,far,vfar or nodrone
+99,99,drone_190705_124721.wav,far,vfar or nodrone
+100,100,drone_190706_060530.wav,near,vfar or nodrone
+101,101,drone_190706_060530.wav,near,vfar or nodrone
+102,102,drone_190706_060530.wav,near,vfar or nodrone
+103,103,drone_190706_060530.wav,near,vfar or nodrone
+104,104,drone_190706_060530.wav,near,vfar or nodrone
+105,105,drone_190706_060530.wav,near,vfar or nodrone
+106,106,drone_190706_060530.wav,near,vfar or nodrone
+107,107,drone_190706_060530.wav,near,vfar or nodrone
+108,108,drone_190706_060530.wav,near,vfar or nodrone
+109,109,drone_190706_060530.wav,near,vfar or nodrone
+110,110,drone_190706_065949.wav,near,vfar or nodrone
+111,111,drone_190706_065949.wav,midrange,vfar or nodrone
+112,112,drone_190706_065949.wav,midrange,vfar or nodrone
+113,113,drone_190706_065949.wav,midrange,vfar or nodrone
+114,114,drone_190706_065949.wav,near,vfar or nodrone
+115,115,drone_190706_065949.wav,midrange,vfar or nodrone
+116,116,drone_190706_065949.wav,midrange,vfar or nodrone
+117,117,drone_190706_065949.wav,near,vfar or nodrone
+118,118,drone_190706_065949.wav,near,vfar or nodrone
+119,119,drone_190706_065949.wav,near,vfar or nodrone
+120,120,drone_190706_090406.wav,midrange,vfar or nodrone
+121,121,drone_190706_090406.wav,midrange,vfar or nodrone
+122,122,drone_190706_090406.wav,midrange,vfar or nodrone
+123,123,drone_190706_090406.wav,near,vfar or nodrone
+124,124,drone_190706_090406.wav,midrange,vfar or nodrone
+125,125,drone_190706_090406.wav,midrange,vfar or nodrone
+126,126,drone_190706_090406.wav,midrange,vfar or nodrone
+127,127,drone_190706_090406.wav,midrange,vfar or nodrone
+128,128,drone_190706_090406.wav,near,vfar or nodrone
+129,129,drone_190706_090406.wav,near,vfar or nodrone
