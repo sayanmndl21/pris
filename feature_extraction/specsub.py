@@ -3,7 +3,7 @@
 """
 Created on Thu Jul 26 09:53:05 2018
 
-@author: sayan
+@author: https://gist.github.com/shunsukeaihara
 """
 
 import scipy as sp
